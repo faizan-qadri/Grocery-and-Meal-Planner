@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseFirestore db;
     private FirebaseAuth firebaseAuth;
+    private Button button;
 
 
     @Override

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Grocery and Meal Planner</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_first_visit_title">Plan meals, track inventory, eat better!</string>
+    <string name="user_first_visit_description"><![CDATA[Smart Grocery & Meal Planner helps you plan meals, create shopping lists, and manage ingredients effortlessly for a healthier, organized lifestyle.]]></string>
+    <string name="default_web_client_id">224174824326-c9ejeal7837a5cffjlgt1vibvndqjk9u.apps.googleusercontent.com</string>
+
+</resources>

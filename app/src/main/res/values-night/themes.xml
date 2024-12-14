@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.GroceryAndMealPlanner" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:statusBarColor">#E8DEF8</item>
+        <item name="android:windowBackground">#E8DEF8</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="behavior_peekHeight">400dp</item> <!-- Adjust initial height -->
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+
+    <style name="TransparentBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/TransparentBottomSheet</item>
+    </style>
+
+    <style name="TransparentBottomSheet" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+
+</resources>

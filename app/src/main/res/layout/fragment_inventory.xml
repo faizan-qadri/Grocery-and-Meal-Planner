@@ -11,6 +11,7 @@
         android:layout_height="match_parent"/>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/fab_add_item"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:translationZ="6dp"

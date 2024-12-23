@@ -1,0 +1,129 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Item Name -->
+    <EditText
+        android:id="@+id/et_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Item Name"
+        android:inputType="text" />
+
+    <!-- Expire Date -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp">
+
+        <EditText
+            android:id="@+id/et_expire_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Expire Date (dd/MM/yyyy)"
+            android:inputType="none"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:clickable="true" />
+
+        <ImageButton
+            android:id="@+id/btn_pick_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_calender"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="Pick Date" />
+    </LinearLayout>
+
+    <!-- Status (Dropdown Spinner) -->
+    <Spinner
+        android:id="@+id/sp_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:entries="@array/measurement_units"
+        android:spinnerMode="dropdown"/>
+
+    <!-- Quantity -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quantity:"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btn_decrease_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="−"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/tv_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_increase_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+" />
+    </LinearLayout>
+
+    <!-- Low Stock Alert -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Low Stock Alert:"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btn_decrease_alert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="−"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/tv_low_stock_alert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_increase_alert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+" />
+    </LinearLayout>
+
+    <!-- Add Item Button -->
+    <Button
+        android:id="@+id/btn_add_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Item"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

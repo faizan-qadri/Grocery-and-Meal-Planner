@@ -1,10 +1,13 @@
 package com.android.groceryandmealplanner.Fragment;
 
 import android.app.DatePickerDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -56,15 +59,29 @@ public class Inventory extends Fragment {
         TextView tvLowStockAlert = popupView.findViewById(R.id.tv_low_stock_alert);
         Button btnAddItem = popupView.findViewById(R.id.btn_add_item);
 
-        Button btnIncreaseQuantity = popupView.findViewById(R.id.btn_increase_quantity);
-        Button btnDecreaseQuantity = popupView.findViewById(R.id.btn_decrease_quantity);
-        Button btnIncreaseAlert = popupView.findViewById(R.id.btn_increase_alert);
-        Button btnDecreaseAlert = popupView.findViewById(R.id.btn_decrease_alert);
+        CardView btnIncreaseQuantity = popupView.findViewById(R.id.btn_increase_quantity);
+        CardView btnDecreaseQuantity = popupView.findViewById(R.id.btn_decrease_quantity);
+        CardView btnIncreaseAlert = popupView.findViewById(R.id.btn_increase_alert);
+        CardView btnDecreaseAlert = popupView.findViewById(R.id.btn_decrease_alert);
         ImageButton btnPickDate = popupView.findViewById(R.id.btn_pick_date);
+        ImageButton close = popupView.findViewById(R.id.closePopUpBtn);
+        ImageButton info = popupView.findViewById(R.id.infoBtn);
 
         builder.setView(popupView);
         AlertDialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
         dialog.show();
+
+
+        close.setOnClickListener(v -> {
+            dialog.dismiss();
+        });
+        info.setOnClickListener(v -> {
+            infoDialog();
+        });
+
+
 
         // Initialize variables
         int[] quantity = {0};
@@ -105,6 +122,24 @@ public class Inventory extends Fragment {
             }
 
             // Firestore integration here...
+        });
+    }
+
+    private void infoDialog(){
+        AlertDialog.Builder secondBuilder = new AlertDialog.Builder(getContext());
+        View secondPopupView = LayoutInflater.from(getContext()).inflate(R.layout.info_popup_dialog, null);
+        secondBuilder.setView(secondPopupView);
+
+        AlertDialog secondDialog = secondBuilder.create();
+        secondDialog.show();
+
+        // Handle logic for the second dialog here
+        ImageButton closeSecondDialog = secondPopupView.findViewById(R.id.closePopUpBtnInfo); // Replace with your button ID
+        closeSecondDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                secondDialog.dismiss(); // Close the second dialog
+            }
         });
     }
 

@@ -1,15 +1,45 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/infoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="Info"
+            android:src="@drawable/baseline_info_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/closePopUpBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="Close"
+            android:src="@drawable/baseline_close_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Item Name -->
     <EditText
         android:id="@+id/et_item_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:hint="Item Name"
         android:inputType="text" />
 
@@ -41,16 +71,36 @@
     </LinearLayout>
 
     <!-- Status (Dropdown Spinner) -->
-    <Spinner
-        android:id="@+id/sp_status"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:entries="@array/measurement_units"
-        android:spinnerMode="dropdown"/>
+        android:layout_marginVertical="10dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Select Measurement Unit:"/>
+
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/sp_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:entries="@array/measurement_units"
+            android:spinnerMode="dropdown"/>
+
+    </androidx.cardview.widget.CardView>
 
     <!-- Quantity -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -58,34 +108,75 @@
         android:layout_marginTop="8dp">
 
         <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Quantity:"
-            android:layout_marginEnd="8dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <androidx.cardview.widget.CardView
             android:id="@+id/btn_decrease_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="−"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginEnd="15dp"
+            app:cardBackgroundColor="@color/Gray"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_quantity"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="5dp"
+                android:text="-"
+                android:textColor="@color/Green"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tv_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginEnd="15dp"
             android:text="0"
-            android:textSize="16sp" />
+            android:textColor="@color/Green"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_increase_quantity"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <androidx.cardview.widget.CardView
             android:id="@+id/btn_increase_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+" />
-    </LinearLayout>
+            app:cardBackgroundColor="@color/Gray"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="5dp"
+                android:text="+"
+                android:textColor="@color/Green"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Low Stock Alert -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -93,31 +184,72 @@
         android:layout_marginTop="8dp">
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Low Stock Alert:"
-            android:layout_marginEnd="8dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <androidx.cardview.widget.CardView
             android:id="@+id/btn_decrease_alert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="−"
-            android:layout_marginEnd="8dp" />
+            android:layout_marginEnd="15dp"
+            app:cardBackgroundColor="@color/Gray"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_low_stock_alert"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="5dp"
+                android:text="-"
+                android:textColor="@color/Green"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tv_low_stock_alert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginEnd="15dp"
             android:text="0"
-            android:textSize="16sp" />
+            android:textColor="@color/Green"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_increase_alert"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <androidx.cardview.widget.CardView
             android:id="@+id/btn_increase_alert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+" />
-    </LinearLayout>
+            app:cardBackgroundColor="@color/Gray"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="5dp"
+                android:text="+"
+                android:textColor="@color/Green"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Add Item Button -->
     <Button

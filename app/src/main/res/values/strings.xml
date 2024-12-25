@@ -11,13 +11,15 @@
         <item>Dozen</item>
         <item>Kilogram</item>
         <item>Gram</item>
+        <item>Milligram</item>
         <item>Pound</item>
         <item>Ounce</item>
         <item>Teaspoon</item>
+        <item>Tablespoon</item>
         <item>Liter</item>
         <item>Milliliter</item>
-        <item>Gallon (UK gal)</item>
-        <item>Barrel</item>
+        <item>Gallon (US)</item>
+        <item>Gallon (UK)</item>
     </string-array>
 
 

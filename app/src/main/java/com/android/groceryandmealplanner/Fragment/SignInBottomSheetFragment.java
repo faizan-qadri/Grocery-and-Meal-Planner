@@ -1,5 +1,7 @@
 package com.android.groceryandmealplanner.Fragment;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.android.groceryandmealplanner.Activity.MainActivity;
 import com.android.groceryandmealplanner.Activity.SignInWithEmailActivity;
 import com.android.groceryandmealplanner.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -26,6 +29,10 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignInBottomSheetFragment extends BottomSheetDialogFragment {
 
@@ -114,8 +121,31 @@ public class SignInBottomSheetFragment extends BottomSheetDialogFragment {
                     if (task.isSuccessful()) {
                         // Sign-In success
                         FirebaseUser user = mAuth.getCurrentUser();
-                        Log.d(TAG, "signInWithCredential:success - User: " + user.getDisplayName());
-                        Toast.makeText(requireContext(), "Welcome, " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
+                        if (user != null) {
+                            String name = user.getDisplayName();  // Get user name
+                            String email = user.getEmail();  // Get user email
+                            String userId = user.getUid();  // Get user ID
+
+                            // Create a map with the user data
+                            Map<String, Object> userData = new HashMap<>();
+                            userData.put("name", name);
+                            userData.put("email", email);
+                            userData.put("userId", userId);
+                            userData.put("User Credential", "Google");
+                            // Store the user data in Firestore
+                            FirebaseFirestore db = FirebaseFirestore.getInstance();
+                            db.collection("Users")
+                                    .document(userId)  // Use the user's UID as the document ID
+                                    .set(userData)  // Store the user data
+                                    .addOnSuccessListener(aVoid -> {
+                                        Log.d(TAG, "User data stored successfully in Firestore");
+                                        Toast.makeText(requireContext(), "Welcome, " + name, Toast.LENGTH_SHORT).show();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        Log.w(TAG, "Error storing user data in Firestore", e);
+                                        Toast.makeText(requireContext(), "Error storing data.", Toast.LENGTH_SHORT).show();
+                                    });
+                        }
                     } else {
                         // Sign-In failed
                         Log.w(TAG, "signInWithCredential:failure", task.getException());

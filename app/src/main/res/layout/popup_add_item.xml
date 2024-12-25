@@ -138,11 +138,12 @@
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
+        <EditText
             android:id="@+id/tv_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
+            android:paddingHorizontal="15dp"
             android:layout_marginEnd="15dp"
             android:text="0"
             android:textColor="@color/Green"
@@ -214,13 +215,14 @@
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
+        <EditText
             android:id="@+id/tv_low_stock_alert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:layout_marginEnd="15dp"
             android:text="0"
+            android:paddingHorizontal="15dp"
             android:textColor="@color/Green"
             android:textSize="16sp"
             android:textStyle="bold"

@@ -22,4 +22,235 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/table_border"
+            android:showDividers="middle"
+            android:stretchColumns="1">
+
+            <!-- Table Header -->
+            <TableRow
+                android:background="@drawable/table_border"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Unit Name"
+                    android:textStyle="bold"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Conversion"
+                    android:textStyle="bold"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Row 1: Piece -->
+            <TableRow
+                android:background="@drawable/table_border">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Piece"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Piece = 1 unit"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Row 2: Dozen -->
+            <TableRow android:background="@drawable/table_border">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dozen"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Dozen = 12 Pieces"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Row 3: Kilogram -->
+            <TableRow android:background="@drawable/table_border">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kilogram"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Kilogram = 1000 Grams = 1,000,000 \n Milligrams"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Row 4: Gram -->
+            <TableRow android:background="@drawable/table_border">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gram"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Gram = 0.001 Kilograms = 1000 \n Milligrams"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Row 5: Milligram -->
+            <TableRow android:background="@drawable/table_border">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Milligram"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Milligram = 0.000001 Kilograms = \n0.001 Grams"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Row 6: Pound -->
+            <TableRow android:background="@drawable/table_border">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pound"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Pound = 16 Ounces = 453.592 \nGrams"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Row 7: Ounce -->
+            <TableRow android:background="@drawable/table_border">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ounce"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Ounce = 0.0625 Pounds = 28.3495 \nGrams"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Row 8: Teaspoon -->
+            <TableRow android:background="@drawable/table_border">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Teaspoon"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Teaspoon ≈ 4.2 Grams (for water)"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Row 9: Tablespoon -->
+            <TableRow android:background="@drawable/table_border">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tablespoon"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Tablespoon = 3 Teaspoons ≈ 15 \nGrams"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Row 10: Liter -->
+            <TableRow android:background="@drawable/table_border">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Liter"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Liter = 1000 Milliliters = 0.264172 \nGallons (US)"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Row 11: Milliliter -->
+            <TableRow android:background="@drawable/table_border">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Milliliter"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Milliliter = 0.001 Liters"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Row 12: Gallon (US) -->
+            <TableRow android:background="@drawable/table_border">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gallon (US)"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Gallon = 3.785 Liters"
+                    android:padding="8dp" />
+            </TableRow>
+
+            <!-- Row 13: Gallon (UK) -->
+            <TableRow android:background="@drawable/table_border">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gallon (UK)"
+                    android:padding="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 Gallon = 4.546 Liters"
+                    android:padding="8dp" />
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+
 </LinearLayout>

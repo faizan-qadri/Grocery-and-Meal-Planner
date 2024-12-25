@@ -87,16 +87,17 @@ public class SignUp extends Fragment {
                                     user.put("name", nameStr);
                                     user.put("email", emailInput);
                                     user.put("userID", auth.getCurrentUser().getUid());
+                                    user.put("User Credential", "Email");
                                     db.collection("Users")
-                                            .add(user)
-                                            .addOnSuccessListener(documentReference -> {
-                                                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                                            .document(auth.getCurrentUser().getUid())
+                                            .set(user)
+                                            .addOnSuccessListener(aVoid -> {
+                                                Log.d(TAG, "DocumentSnapshot added with ID: " + auth.getCurrentUser().getUid());
                                                 Toast.makeText(getActivity(), "Data stored successfully!", Toast.LENGTH_SHORT).show();
                                             })
                                             .addOnFailureListener(e -> {
                                                 Log.w(TAG, "Error adding document", e);
                                                 Toast.makeText(getActivity(), "Error storing data.", Toast.LENGTH_SHORT).show();
-
                                             });
                                 } else {
                                     Toast.makeText(getContext(), "Sign Up Failed", Toast.LENGTH_SHORT).show();

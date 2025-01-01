@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.Meal">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recipeRecyclerView"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Meal" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>

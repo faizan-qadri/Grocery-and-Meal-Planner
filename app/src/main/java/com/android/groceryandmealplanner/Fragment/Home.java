@@ -13,6 +13,7 @@ import com.android.groceryandmealplanner.R;
 public class Home extends Fragment {
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,8 @@ public class Home extends Fragment {
 
 
 
+
         return view;
     }
+
 }

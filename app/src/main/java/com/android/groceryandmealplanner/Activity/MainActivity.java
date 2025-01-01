@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         fetchUserData(usersCollection);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        loadFragmentMainActivity(new Home());
+        loadFragmentMainActivity(new Inventory());
 
         // Set listener for navigation item selection
         bottomNavigationView.setOnItemSelectedListener(item -> {

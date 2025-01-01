@@ -41,6 +41,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 
 public class Inventory extends Fragment {
@@ -260,6 +261,8 @@ public class Inventory extends Fragment {
         // Get current user's UID
         String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+        String customRandomID = UUID.randomUUID().toString();
+
         // Create a map for the new inventory item
         Map<String, Object> itemData = new HashMap<>();
         itemData.put("name", itemName);
@@ -268,14 +271,16 @@ public class Inventory extends Fragment {
         itemData.put("quantity", quantity);
         itemData.put("lowStockAlert", lowStockAlert);
         itemData.put("lastUpdate", Timestamp.now());
+        itemData.put("id",customRandomID);
 
         // Add the item to the user's inventory subcollection
         db.collection("Users")
                 .document(userID)
                 .collection("Inventory")
-                .add(itemData)
-                .addOnSuccessListener(documentReference -> {
-                    Toast.makeText(getContext(), "Item added successfully!", Toast.LENGTH_SHORT).show();
+                .document(customRandomID)
+                .set(itemData)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(getContext(), "Item added successfully with ID: " + customRandomID, Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(getContext(), "Failed to add item: " + e.getMessage(), Toast.LENGTH_SHORT).show();
